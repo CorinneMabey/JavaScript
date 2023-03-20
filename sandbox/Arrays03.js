@@ -46,3 +46,5 @@ console.log(sumGPA);
 let fruits = ['watermelon', 'peach', 'apple', 'tomato', 'grape']
 
 let numbers = [12, 34, 21, 54]
+
+

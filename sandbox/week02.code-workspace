@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"name": "week02",
+			"path": "../../../../Downloads/week02"
+		},
+		{
+			"name": "JavaScript",
+			"path": ".."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "JavaScript"
+	}
+}
