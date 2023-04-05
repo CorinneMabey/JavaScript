@@ -1,7 +1,7 @@
 // Step 1: Declare a global empty array variable to store a list of temples
 
 let holidays = [];
-choices = [131, 132, 137, 140, 145, 148, 152, 173, 177, 194]
+choices = [131, 132, 140, 145, 148, 152, 173, 177, 194]
 filteredList = []
 
 // Step 2: Declare a function named output that accepts a list of temples as an array argument
@@ -14,7 +14,7 @@ function output(array) {
         // - extract the date
         date = event.date.day
         // - find the date in the css
-         
+        
         // - extract essential information from the element in the api 
         // - append info to the <li> with the date
     });
@@ -22,22 +22,27 @@ function output(array) {
 
 
 function filter(array) {
-    array.forEach(element => {
-        if (date == choice) {
+
+    array.forEach(choice => {
+        if (index == choice) {
             filteredList.append(element);
         }
     });
 }
 
 async function getHolidays() {
-    const response = await fetch('https://calendarific.com/api/v2/holidays?api_key=da25824db34555196909e933f6146f47f9f38fec&country=US&year=2023&month=4');
-    let data = await response.json();
+    const response = await fetch('https://calendarific.com/api/v2/holidays?api_key=da25824db34555196909e933f6146f47f9f38fec&country=US&year=2023'); //&month=4
+    let data = await response.json(); 
     holidays = data;
     console.log(holidays);
     output(holidays);
 }
 
+// For each element - name, date, and description - I created an element in the html and aded the information into the text content of that element.
+
+
 getHolidays(holidays);
+filter(choices);
 
 
 function highlightToday() {

@@ -75,7 +75,6 @@ function output(list) {
     list.forEach(temple => {
         var newTemple = document.createElement("ARTICLE");
 
-        // For each element - name, place, date dedicated, and image - I created an element in the html and aded the information into the text content of that element.
         var name = document.createElement("H3");
         name.textContent = temple.templeName;
    
