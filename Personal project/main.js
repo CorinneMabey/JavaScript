@@ -6,27 +6,38 @@ filteredList = []
 
 // Step 2: Declare a function named output that accepts a list of temples as an array argument
 
-function output(array) {
-    array.forEach(element => {
-        var event = document.createElement("paragraph");
-        event.textContent = element.name;
-        // Add the event to the calendar
+
+// For each element - name, date, and description - I create an element in the html and aded the information into the text content of that element.
+function output(apiResults) {
+    apiResults.forEach(apiElement => {
+        event.textContent = apiElement.name;
         // - extract the date
-        date = event.date.day
-        // - find the date in the css
+        date = apiElement.date.datetime.day;
+        // - find the date in the html
         
         // - extract essential information from the element in the api 
+        nameEvent = apiElement.name;
         // - append info to the <li> with the date
     });
 }
 
 
-function filter(array) {
+function populateCalendar(holiday) {
+    choices.forEach(choice => {
+        choice = choice.toSring();
+        document.getElementById(choice).createElement("p");
+    });
+    // Add the event to the calendar
+    // let event = textContent
 
-    array.forEach(choice => {
-        if (index == choice) {
-            filteredList.append(element);
-        }
+}
+
+function filter(array) {
+    choices.forEach(choice => {
+        element = array[choice];
+        filteredList.append(element);
+        console.log(element);
+        console.log(filteredList);
     });
 }
 
@@ -35,41 +46,17 @@ async function getHolidays() {
     let data = await response.json(); 
     holidays = data;
     console.log(holidays);
+    // console.log(data);
+    filter(holidays);
     output(holidays);
 }
 
-// For each element - name, date, and description - I created an element in the html and aded the information into the text content of that element.
 
 
 getHolidays(holidays);
-filter(choices);
 
 
 function highlightToday() {
     let today = date.object.getDate()
     return today;
 }
-
-// "meta": {
-//     "code": 200
-// },
-// "response": {
-//     "holidays": [
-//         {
-//             "name": "Name of holiday goes here",
-//             "description": "Description of holiday goes here",
-//             "date": {
-//                 "iso": "2018-12-31",
-//                 "datetime": {
-//                     "year": 2018,
-//                     "month": 12,
-//                     "day": 31
-//                 }
-//             },
-//             "type": [
-//                 "Type of Observance goes here"
-//             ]
-//         }
-//     ]
-// }
-// }
